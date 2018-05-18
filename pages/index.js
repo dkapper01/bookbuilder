@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Button from 'material-ui/Button';
+
 import withLayout from '../lib/withLayout';
 
 const Index = () => (
@@ -8,6 +10,9 @@ const Index = () => (
       <meta name="description" content="This is description of Index page" />
     </Head>
     <p>Content on Index page</p>
+    <Button variant="raised">
+      MUI button
+    </Button>
   </div>
 );
 
