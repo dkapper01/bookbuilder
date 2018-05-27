@@ -1,10 +1,15 @@
 import express from 'express';
 import next from 'next';
+import mongoose from 'mongoose';
+
+const dev = process.env.NODE_ENV !== 'production';
+const MONGO_URL = process.env.MONGO_URL_TEST;
+
+mongoose.connect(MONGO_URL);
 
 const port = process.env.PORT || 8000;
 const ROOT_URL = process.env.ROOT_URL || `http://localhost:${port}`;
 
-const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
@@ -12,7 +17,7 @@ app.prepare().then(() => {
   const server = express();
 
   server.get('/', (req, res) => {
-    const user = { email: 'dkapper01@gmail.com' };
+    const user = { email: 'team@builderbook.org' };
     app.render(req, res, '/', { user });
   });
 
