@@ -9,15 +9,15 @@ const mongoSchema = new Schema({
     unique: true,
   },
   googleToken: {
-    accesse_token: String,
-    refresh_toke: String,
+    access_token: String,
+    refresh_token: String,
     token_type: String,
     expiry_date: Number,
   },
   slug: {
-    type: true,
+    type: String,
     required: true,
-    uniique: true,
+    unique: true,
   },
   createdAt: {
     type: Date,
@@ -28,25 +28,22 @@ const mongoSchema = new Schema({
     required: true,
     unique: true,
   },
-  isAdin {
-      type: Boolean,
-      default: false,
+  isAdmin: {
+    type: Boolean,
+    default: false,
   },
   displayName: String,
   avatarUrl: String,
 
   isGithubConnected: {
-      type: Boolean,
-      default: false,
+    type: Boolean,
+    default: false,
   },
-  getGithubToken: {
-      type: String,
+  githubAccessToken: {
+    type: String,
   },
 });
 
-console User = mongoose.Model('User', mongoSchema); 
+const User = mongoose.model('User', mongoSchema);
 
-export default User; 
-
-
-
+export default User;
