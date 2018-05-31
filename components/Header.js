@@ -12,12 +12,12 @@ function Header({ user }) {
     <div>
       <Toolbar style={styleToolbar}>
         <Grid container direction="row" justify="space-around" alignItems="center">
-          <Grid item={10} xs={9} style={{ textAlign: 'left' }}>
+          <Grid item sm={10} xs={9} style={{ textAlign: 'left' }}>
             {user ? (
               <div>
                 <Hidden smDown>
                   <Link prefetch href="/">
-                    <a style={{ marginRight: '20' }}>Settings</a>
+                    <a style={{ marginRight: '20px' }}>Settings</a>
                   </Link>
                 </Hidden>
               </div>
@@ -25,9 +25,24 @@ function Header({ user }) {
               <Link prefetch href="/">
                 <Avatar
                   src="https://storage.googleapis.com/builderbook/logo.svg"
-                  alt="Builder Book Logo"
+                  alt="Builder Book logo"
                   style={{ margin: '0px auto 0px 20px' }}
                 />
+              </Link>
+            )}
+          </Grid>
+          <Grid item sm={1} xs={3} style={{ textAlign: 'right' }}>
+            {user ? (
+              <div style={{ whiteSpace: ' nowrap' }}>
+                <Avatar
+                  src={user.avatarUrl}
+                  alt={user.displayName}
+                  style={{ margin: '0px auto 0px 20px' }}
+                />
+              </div>
+            ) : (
+              <Link prefetch href="/login">
+                <a style={{ margin: '0px 20px 0px auto' }}>Log in</a>
               </Link>
             )}
           </Grid>
